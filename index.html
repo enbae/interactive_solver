@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Solver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wordle Solver</h1>
+            <p>An intelligent solver for 5-letter Wordle puzzles</p>
+        </header>
+
+        <div class="mode-selection">
+            <button id="auto-mode-btn" class="mode-btn active">Automated Mode</button>
+            <button id="interactive-mode-btn" class="mode-btn">Interactive Mode</button>
+        </div>
+
+        <div id="auto-mode" class="mode-panel">
+            <div class="input-group">
+                <label for="secret-word">Enter Secret Word:</label>
+                <input type="text" id="secret-word" maxlength="5" placeholder="apple">
+                <button id="solve-btn">Solve</button>
+            </div>
+        </div>
+
+        <div id="interactive-mode" class="mode-panel hidden">
+            <div class="instructions">
+                <p>Play Wordle and enter the results. Use:</p>
+                <ul>
+                    <li><strong>G</strong> - Green (correct letter, correct position)</li>
+                    <li><strong>Y</strong> - Yellow (correct letter, wrong position)</li>
+                    <li><strong>X</strong> - Gray (letter not in word)</li>
+                </ul>
+            </div>
+            <button id="start-interactive-btn">Start Interactive Game</button>
+        </div>
+
+        <div id="game-area" class="hidden">
+            <div id="guess-history"></div>
+
+            <div id="current-guess-section" class="hidden">
+                <h3>Current Guess</h3>
+                <div id="current-guess-display" class="guess-display"></div>
+
+                <div id="result-input-section">
+                    <label>Enter result (5 characters: g,y,x):</label>
+                    <input type="text" id="result-input" maxlength="5" placeholder="gyxxy">
+                    <button id="submit-result-btn">Submit Result</button>
+                </div>
+            </div>
+
+            <div id="game-status">
+                <div id="vocabulary-size">Words remaining: <span id="remaining-words">12972</span></div>
+                <div id="guess-count">Guesses: <span id="guess-number">0</span></div>
+            </div>
+        </div>
+
+        <div id="game-over" class="hidden">
+            <h2 id="game-result"></h2>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
